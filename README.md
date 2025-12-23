@@ -71,12 +71,38 @@
    npm start
    ```
 3. Open http://localhost:3000.
-4. Connect MetaMask (ensure it's connected to **Localhost 8545**).
-   - Network Name: Localhost 8545
-   - RPC URL: http://127.0.0.1:8545
-   - Chain ID: 31337
-   - Currency Symbol: ETH
-5. Import one of the private keys from the `npx hardhat node` terminal into MetaMask to have funds.
+4. Connect MetaMask (ensure it's connected to **Polygon Amoy** or **Localhost** depending on your setup).
+
+## Deployment Guide
+
+### 1. Deploying Frontend (Vercel/Netlify)
+The `client` folder is a standard React app.
+1. Push this repository to GitHub.
+2. Go to [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com).
+3. Import your repository.
+4. **Important**: Configure the "Root Directory" settings:
+   - **Root Directory**: `client`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `build`
+5. Click Deploy.
+
+### 2. Deploying Backend (Render/Railway/Heroku)
+The `server` is a Node.js Express app.
+1. Create a new Web Service on [Render](https://render.com) or [Railway](https://railway.app).
+2. Connect your GitHub repository.
+3. **Settings**:
+   - **Root Directory**: `server`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+4. Add Environment Variables (if any).
+
+### ⚠️ CRITICAL: IPFS in Production
+Your current server code connects to a **Local IPFS Node** (`http://127.0.0.1:5001`).
+- **This will NOT work in the cloud** (Vercel/Render) because they don't have your local IPFS node.
+- **Solution**: You must switch to a remote IPFS provider like **Pinata** or **Infura**.
+  1. Sign up for [Pinata](https://www.pinata.cloud/).
+  2. Update `server/src/server.js` to use the Pinata API instead of `localhost:5001`.
+
 
 ## Tech Stack
 - Ethereum / Polygon (Hardhat for local dev)
