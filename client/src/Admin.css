@@ -1,0 +1,35 @@
+
+.admin-panel {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.admin-panel h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.verified-badge {
+  color: #4ade80;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.user-item button {
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  margin-top: 0;
+}
