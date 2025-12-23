@@ -28,7 +28,12 @@
    npm install
    ```
 2. **Configure Environment**:
-   - Open `smart-contracts/.env`.
+   - Copy the example environment file:
+     ```bash
+     cp .env.example .env
+     ```
+     (Or manually create `.env` and copy the contents of `.env.example` into it)
+   - Open `.env`.
    - Replace `YOUR_PRIVATE_KEY_HERE` with your MetaMask private key (Export from MetaMask -> Account Details -> Show Private Key).
    - *Note: Ensure this account has Amoy MATIC tokens. Get them from the [Polygon Amoy Faucet](https://faucet.polygon.technology/).*
 
@@ -38,7 +43,10 @@
    ```
 4. **Important**: Copy the deployed address from the console output.
 5. Open `client/src/App.js` and replace `YOUR_DEPLOYED_CONTRACT_ADDRESS` with the address you just copied.
-6. (Optional) If you change the contract, copy the new ABI from `smart-contracts/artifacts/contracts/Identity.sol/Identity.json` to `client/src/contracts/Identity.json`.
+6. **Update Chain ID**:
+   - In `client/src/App.js`, the code checks for a specific Chain ID (default is often Localhost `0x7a69`).
+   - If deploying to **Polygon Amoy**, update the chain ID check to `0x13882` (80002).
+7. (Optional) If you change the contract, copy the new ABI from `smart-contracts/artifacts/contracts/Identity.sol/Identity.json` to `client/src/contracts/Identity.json`.
 
 ### 2. Server (Backend)
 1. Navigate to `server`:
